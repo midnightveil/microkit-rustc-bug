@@ -1,0 +1,31 @@
+thread 'rustc' panicked at compiler/rustc_errors/src/lib.rs:1803:17:
+aborting due to `-Z treat-err-as-bug=1`
+stack backtrace:
+   0:     0x7f69e9aaa7a5 - std::backtrace::Backtrace::create::hd44cf642eac7dd13
+   1:     0x7f69e7faa8d5 - std::backtrace::Backtrace::force_capture::h1c6a5336f4788f1c
+   2:     0x7f69e714448e - std[f4f7433038ca58d7]::panicking::update_hook::<alloc[5afee40ebe45352b]::boxed::Box<rustc_driver_impl[bf262a983b89031b]::install_ice_hook::{closure#0}>>::{closure#0}
+   3:     0x7f69e7fc2747 - std::panicking::rust_panic_with_hook::h2812277631d65a18
+   4:     0x7f69e7fc23d3 - std::panicking::begin_panic_handler::{{closure}}::h1cbf6e1a8ab08919
+   5:     0x7f69e7fbfc09 - std::sys::backtrace::__rust_end_short_backtrace::he514a61806a4f1e2
+   6:     0x7f69e7fc20d4 - rust_begin_unwind
+   7:     0x7f69e4ea80f3 - core::panicking::panic_fmt::hc4e73aa92e327778
+   8:     0x7f69ea333996 - <rustc_errors[522b8b3df7a583e8]::DiagCtxtInner>::panic_if_treat_err_as_bug.cold
+   9:     0x7f69e99ce210 - <rustc_errors[522b8b3df7a583e8]::DiagCtxtInner>::emit_diagnostic::{closure#3}
+  10:     0x7f69e99d16bf - rustc_interface[632640cbf95a869f]::callbacks::track_diagnostic::<core[688a17d15409e27]::option::Option<rustc_span[7b3448155f652e2d]::ErrorGuaranteed>>
+  11:     0x7f69e99cfabe - <rustc_errors[522b8b3df7a583e8]::DiagCtxtInner>::emit_diagnostic
+  12:     0x7f69e99cf95d - <rustc_errors[522b8b3df7a583e8]::DiagCtxtHandle>::emit_diagnostic
+  13:     0x7f69e696b2bb - <() as rustc_errors[522b8b3df7a583e8]::diagnostic::EmissionGuarantee>::emit_producing_guarantee
+  14:     0x7f69e9762d64 - <rustc_codegen_ssa[65d2e4fac7b81301]::back::write::SharedEmitterMain>::check
+  15:     0x7f69e975ef44 - <rustc_codegen_llvm[d285dc14666e2f1]::LlvmCodegenBackend as rustc_codegen_ssa[65d2e4fac7b81301]::traits::backend::CodegenBackend>::join_codegen
+  16:     0x7f69e975c006 - <rustc_interface[632640cbf95a869f]::queries::Linker>::link
+  17:     0x7f69e95e1de3 - rustc_interface[632640cbf95a869f]::interface::run_compiler::<core[688a17d15409e27]::result::Result<(), rustc_span[7b3448155f652e2d]::ErrorGuaranteed>, rustc_driver_impl[bf262a983b89031b]::run_compiler::{closure#0}>::{closure#1}
+  18:     0x7f69e95c7290 - std[f4f7433038ca58d7]::sys::backtrace::__rust_begin_short_backtrace::<rustc_interface[632640cbf95a869f]::util::run_in_thread_with_globals<rustc_interface[632640cbf95a869f]::util::run_in_thread_pool_with_globals<rustc_interface[632640cbf95a869f]::interface::run_compiler<core[688a17d15409e27]::result::Result<(), rustc_span[7b3448155f652e2d]::ErrorGuaranteed>, rustc_driver_impl[bf262a983b89031b]::run_compiler::{closure#0}>::{closure#1}, core[688a17d15409e27]::result::Result<(), rustc_span[7b3448155f652e2d]::ErrorGuaranteed>>::{closure#0}, core[688a17d15409e27]::result::Result<(), rustc_span[7b3448155f652e2d]::ErrorGuaranteed>>::{closure#0}::{closure#0}, core[688a17d15409e27]::result::Result<(), rustc_span[7b3448155f652e2d]::ErrorGuaranteed>>
+  19:     0x7f69e95c78fa - <<std[f4f7433038ca58d7]::thread::Builder>::spawn_unchecked_<rustc_interface[632640cbf95a869f]::util::run_in_thread_with_globals<rustc_interface[632640cbf95a869f]::util::run_in_thread_pool_with_globals<rustc_interface[632640cbf95a869f]::interface::run_compiler<core[688a17d15409e27]::result::Result<(), rustc_span[7b3448155f652e2d]::ErrorGuaranteed>, rustc_driver_impl[bf262a983b89031b]::run_compiler::{closure#0}>::{closure#1}, core[688a17d15409e27]::result::Result<(), rustc_span[7b3448155f652e2d]::ErrorGuaranteed>>::{closure#0}, core[688a17d15409e27]::result::Result<(), rustc_span[7b3448155f652e2d]::ErrorGuaranteed>>::{closure#0}::{closure#0}, core[688a17d15409e27]::result::Result<(), rustc_span[7b3448155f652e2d]::ErrorGuaranteed>>::{closure#1} as core[688a17d15409e27]::ops::function::FnOnce<()>>::call_once::{shim:vtable#0}
+  20:     0x7f69e95c7c6b - std::sys::pal::unix::thread::Thread::new::thread_start::hcb43f834109dfd4d
+  21:     0x7f69eaf2e272 - start_thread
+  22:     0x7f69eafa9dec - clone3
+  23:                0x0 - <unknown>
+
+
+rustc version: 1.82.0-nightly (636d7ff91 2024-08-19)
+platform: x86_64-unknown-linux-gnu
